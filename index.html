@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" >
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif; /* Body text font */
-      background-color: #0d0d0d;
+      background-color: #0d0d0d; /* Cor única para todo o site */
       color: #eee;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -30,63 +30,26 @@
       display: block;
     }
 
-    /* Header */
-    header {
-      background-color: #000;
-      padding: 15px 20px; /* Increased padding */
-      display: flex;
-      align-items: center;
-      height: 80px; /* Slightly taller header */
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Subtle shadow */
+    /* Estilo para o logo no canto superior esquerdo */
+    .top-left-logo {
+      position: absolute; /* Para posicionar em relação à viewport */
+      top: 10px; /* Ajustei um pouco a distância do topo para melhor encaixe com o tamanho maior */
+      left: 20px; /* Distância da esquerda */
+      z-index: 1000; /* Garante que o logo fique acima de outros elementos se houver sobreposição */
     }
-    header img.logo {
-      height: 60px; /* Slightly larger logo */
+    .top-left-logo img {
+      height: 150px; /* Altura do logo um pouco maior */
       width: auto;
     }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      background: url('https://i.postimg.cc/MZmqJQT6/temp-Imagec-NFwqu.avif') center center/cover no-repeat;
-      height: 480px; /* Increased height for more impact */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      color: #fff;
-      text-shadow: 0 0 12px rgba(0,0,0,0.95); /* More pronounced text shadow */
-    }
-    .hero h2 {
-      font-family: 'Bebas Neue', sans-serif; /* Hero heading font */
-      font-size: 3.5rem; /* Larger font size */
-      margin: 0;
-      max-width: 900px; /* Wider text area */
-      font-weight: normal; /* Bebas Neue looks better with normal weight */
-      letter-spacing: 2px; /* Adds a bit of character */
-    }
-    .hero a {
-      margin-top: 40px; /* More space above button */
-      padding: 16px 45px; /* Larger button */
-      background-color: #9D00FF;
-      font-weight: 700;
-      font-size: 1.2rem; /* Larger button text */
-      border-radius: 8px;
-      box-shadow: 0 6px 15px rgba(157,0,255,0.6); /* Stronger shadow */
-      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; /* Added transform for hover */
-    }
-    .hero a:hover, .hero a:focus {
-      background-color: #7a00bb;
-      box-shadow: 0 8px 20px rgba(122,0,187,0.9);
-      transform: translateY(-2px); /* Slight lift on hover */
-    }
+    /* Removido o cabeçalho e a seção hero */
 
     /* Main Content */
     main {
       max-width: 960px; /* Slightly wider main content */
       margin: 60px auto 100px; /* More vertical space */
       padding: 0 25px; /* Increased padding */
+      padding-top: 190px; /* Adiciona espaço no topo para o logo não sobrepor o conteúdo (ajustado para o novo tamanho do logo) */
     }
     section {
       margin-bottom: 70px; /* More space between sections */
@@ -178,19 +141,20 @@
 
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 2.5rem;
-        letter-spacing: 1px;
+      .top-left-logo {
+        top: 5px; /* Ajustei um pouco mais a distância do topo para melhor encaixe com o tamanho maior */
+        left: 15px;
       }
-      .hero {
-        height: 400px;
-      }
-      h3 {
-        font-size: 1.8rem;
+      .top-left-logo img {
+        height: 120px; /* Ajusta o tamanho do logo em telas menores */
       }
       main {
         margin: 40px auto 70px;
         padding: 0 15px;
+        padding-top: 160px; /* Ajusta o padding para o logo menor */
+      }
+      h3 {
+        font-size: 1.8rem;
       }
       .contato a {
         min-width: 140px;
@@ -205,12 +169,15 @@
     }
 
     @media (max-width: 480px) {
-      .hero h2 {
-        font-size: 1.9rem;
-        padding: 0 10px;
+      .top-left-logo {
+        top: 0; /* Ajustei para ocupar um pouco mais do topo em telas bem pequenas */
+        left: 10px;
       }
-      .hero {
-        height: 320px;
+      .top-left-logo img {
+        height: 90px; /* Logo ainda menor em telas pequenas */
+      }
+      main {
+        padding-top: 130px; /* Ajusta o padding para o logo menor */
       }
       h3 {
         font-size: 1.6rem;
@@ -228,29 +195,21 @@
         margin: 10px auto;
         max-width: 250px;
       }
-      header img.logo {
-        height: 45px;
-      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://i.postimg.cc/Jnd3sn7G/temp-Image0-Nv-P2p.avif" alt="Logo Gatto Pretto" class="logo" />
-  </header>
-
-  <section class="hero" role="banner" aria-label="Imagem de cabeçalho com gravador de rolo antigo">
-    <h2>Entre o digital e o visceral, pulsa o som de Gatto Pretto</h2>
-    <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer">Ouça no Spotify</a>
-  </section>
+  <div class="top-left-logo">
+    <img src="https://raw.githubusercontent.com/gatoprettolabel/page/refs/heads/main/Artboard%201%20copy%203.png" alt="Logo Gatto Pretto Label" />
+  </div>
 
   <main>
     <section aria-labelledby="sobre-titulo">
       <h3 id="sobre-titulo">Sobre o selo</h3>
       <p>
-        Um selo urbano, alternativo e melancólico.<br />
+        Um selo urbano, alternativo e conceitual.<br />
         Da cidade para o mundo: <strong>Porto Alegre – Suíça – Berlim – UK</strong>.<br />
-        Experimentamos o indie, o folk, o dream pop e o que ainda não tem nome.
+        Experimentamos o indie, o folk e o que ainda não tem nome.
       </p>
     </section>
 
