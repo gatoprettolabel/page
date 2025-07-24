@@ -2,262 +2,264 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gatto Pretto Label</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
   <style>
-    body {
+    :root {
+      --bg-dark: #0a0a0a;
+      --bg-soft: #141414;
+      --text-light: #f1f1f1;
+      --text-muted: #888;
+      --accent: #9D00FF;
+      --accent-light: #c47dff;
+      --radius: 12px;
+    }
+
+    * {
       margin: 0;
-      font-family: 'Roboto', sans-serif; /* Body text font */
-      background-color: #0d0d0d; /* Cor única para todo o site */
-      color: #eee;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
+
     a {
-      color: #9D00FF;
+      color: var(--accent);
       text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover, a:focus {
-      color: #7a00bb;
-      outline: none;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
+      transition: 0.3s ease;
     }
 
-    /* Estilo para o logo no canto superior esquerdo */
-    .top-left-logo {
-      position: absolute; /* Para posicionar em relação à viewport */
-      top: 10px; /* Ajustei um pouco a distância do topo para melhor encaixe com o tamanho maior */
-      left: 20px; /* Distância da esquerda */
-      z-index: 1000; /* Garante que o logo fique acima de outros elementos se houver sobreposição */
-    }
-    .top-left-logo img {
-      height: 150px; /* Altura do logo um pouco maior */
-      width: auto;
+    a:hover {
+      color: var(--accent-light);
     }
 
-    /* Removido o cabeçalho e a seção hero */
-
-    /* Main Content */
-    main {
-      max-width: 960px; /* Slightly wider main content */
-      margin: 60px auto 100px; /* More vertical space */
-      padding: 0 25px; /* Increased padding */
-      padding-top: 190px; /* Adiciona espaço no topo para o logo não sobrepor o conteúdo (ajustado para o novo tamanho do logo) */
-    }
-    section {
-      margin-bottom: 70px; /* More space between sections */
-    }
-    h3 {
-      font-family: 'Bebas Neue', sans-serif; /* Section heading font */
-      color: #9D00FF;
-      font-weight: normal; /* Bebas Neue looks better with normal weight */
-      font-size: 2rem; /* Larger heading font */
-      margin-bottom: 20px; /* More space below heading */
-      border-bottom: 4px solid #9D00FF; /* Thicker border */
-      display: inline-block;
-      padding-bottom: 8px; /* More padding below border */
-      letter-spacing: 1.5px;
-    }
-    p {
-      font-size: 1.1rem; /* Slightly larger body text */
-      color: #ccc;
-      max-width: 760px; /* Wider paragraph width */
-      line-height: 1.7; /* Increased line height for readability */
-    }
-
-    /* Playlist Containers */
-    .playlist-container {
-      margin-top: 30px;
-      box-shadow: 0 10px 40px rgba(157,0,255,0.4); /* More pronounced shadow */
-      border-radius: 16px; /* Slightly more rounded corners */
-      overflow: hidden;
-      max-width: 760px; /* Consistent with paragraph width */
-      margin-left: auto;
-      margin-right: auto;
-      border: 1px solid rgba(157,0,255,0.2); /* Subtle border */
-    }
-    .playlist-container iframe {
-        border-radius: 16px; /* Match container border-radius */
-    }
-
-
-    /* Contact Section */
-    .contato {
-      text-align: center;
-      margin-top: 80px; /* More space above contact section */
-    }
-    .contato a {
-      display: inline-block;
-      background-color: #9D00FF;
-      color: #fff;
-      font-weight: 700;
-      padding: 16px 32px; /* Larger buttons */
-      margin: 15px 18px; /* Increased margin between buttons */
-      border-radius: 10px; /* Slightly more rounded */
-      box-shadow: 0 6px 15px rgba(157,0,255,0.6);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-      font-size: 1.15rem; /* Larger font size */
-      min-width: 180px; /* Wider buttons */
-    }
-    .contato a:hover, .contato a:focus {
-      background-color: #7a00bb;
-      box-shadow: 0 8px 20px rgba(122,0,187,0.9);
-      transform: translateY(-2px);
-    }
-
-    /* Footer */
-    footer {
-      background-color: #1a1a1a; /* Slightly lighter footer background */
-      color: #aaa; /* Lighter text color */
-      text-align: center;
-      padding: 35px 20px; /* More padding */
-      font-size: 0.95rem; /* Slightly larger font */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #000;
+      padding: 15px 40px;
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo img {
+      height: 60px;
+      filter: drop-shadow(0 0 6px var(--accent));
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: var(--text-light);
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+      margin-top: 4px;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), #000), url('https://images.unsplash.com/photo-1514525253164-ff438018e697?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 50px; /* Increased gap */
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,0.05); /* Subtle top border */
+      flex-direction: column;
+      text-align: center;
+      padding: 0 20px;
     }
-    footer a {
-      color: #9D00FF;
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 5rem;
+      letter-spacing: 5px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .hero a {
+      background: var(--accent);
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 50px;
       font-weight: 600;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    footer a:hover, footer a:focus {
-      color: #7a00bb;
-      outline: none;
-    }
-    footer span {
-        color: #777; /* Copyright text slightly dimmer */
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
     }
 
-    /* Responsive Adjustments */
+    .hero a:hover {
+      background: var(--accent-light);
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 100px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 40px;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+    }
+
+    .playlist {
+      display: grid;
+      gap: 40px;
+    }
+
+    .playlist iframe {
+      width: 100%;
+      height: 352px;
+      border-radius: var(--radius);
+      border: none;
+      box-shadow: 0 10px 30px rgba(157, 0, 255, 0.2);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 40px;
+    }
+
+    .contact a {
+      margin: 10px;
+      display: inline-block;
+      padding: 14px 30px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .contact a:hover {
+      background: var(--accent-light);
+    }
+
+    footer {
+      padding: 60px 20px;
+      background: var(--bg-soft);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    footer a {
+      color: var(--text-muted);
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
     @media (max-width: 768px) {
-      .top-left-logo {
-        top: 5px; /* Ajustei um pouco mais a distância do topo para melhor encaixe com o tamanho maior */
-        left: 15px;
-      }
-      .top-left-logo img {
-        height: 120px; /* Ajusta o tamanho do logo em telas menores */
-      }
-      main {
-        margin: 40px auto 70px;
-        padding: 0 15px;
-        padding-top: 160px; /* Ajusta o padding para o logo menor */
-      }
-      h3 {
-        font-size: 1.8rem;
-      }
-      .contato a {
-        min-width: 140px;
-        padding: 14px 25px;
-        font-size: 1.05rem;
-        margin: 10px 10px;
-      }
-      footer {
-        gap: 25px;
-        padding: 25px 15px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .top-left-logo {
-        top: 0; /* Ajustei para ocupar um pouco mais do topo em telas bem pequenas */
-        left: 10px;
-      }
-      .top-left-logo img {
-        height: 90px; /* Logo ainda menor em telas pequenas */
-      }
-      main {
-        padding-top: 130px; /* Ajusta o padding para o logo menor */
-      }
-      h3 {
-        font-size: 1.6rem;
-        border-bottom: 3px solid #9D00FF;
-      }
-      .playlist-container {
-        border-radius: 10px;
-        box-shadow: 0 6px 20px rgba(157,0,255,0.3);
-      }
-      .playlist-container iframe {
-        border-radius: 10px;
-      }
-      .contato a {
-        display: block; /* Stack buttons on small screens */
-        margin: 10px auto;
-        max-width: 250px;
-      }
+      .hero h1 { font-size: 3rem; }
+      nav ul { flex-wrap: wrap; gap: 15px; justify-content: center; }
     }
   </style>
 </head>
 <body>
-  <div class="top-left-logo">
-    <img src="https://raw.githubusercontent.com/gatoprettolabel/page/refs/heads/main/Artboard%201%20copy%203.png" alt="Logo Gatto Pretto Label" />
-  </div>
 
-  <main>
-    <section aria-labelledby="sobre-titulo">
-      <h3 id="sobre-titulo">Sobre o selo</h3>
-      <p>
-        Um selo urbano, alternativo e conceitual.<br />
-        Da cidade para o mundo: <strong>Porto Alegre – Suíça – Berlim – UK</strong>.<br />
-        Experimentamos o indie, o folk e o que ainda não tem nome.
-      </p>
-    </section>
+  <header>
+    <div class="logo">
+      <a href="#home"><img src="https://raw.githubusercontent.com/gatoprettolabel/page/refs/heads/main/Artboard%201%20copy%203.png" alt="Gatto Pretto Logo"></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#musica">Música</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section aria-labelledby="playlist-gato-titulo">
-      <h3 id="playlist-gato-titulo">Produções do Gato</h3>
-      <div class="playlist-container">
-        <iframe
-          src="https://open.spotify.com/embed/playlist/2t4E0NMq72FCCCptRbhDru?utm_source=generator&theme=0"
-          width="100%"
-          height="352"
-          frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-          title="Playlist Produções do Gato"
-        ></iframe>
-      </div>
-    </section>
+  <section class="hero" id="home">
+    <h1>Gatto Pretto Label</h1>
+    <p>Curadoria sonora independente de Porto Alegre para o mundo. A estética da verdade artística vive aqui.</p>
+    <a href="#musica">Ouça Agora</a>
+  </section>
 
-    <section aria-labelledby="playlist-selo-titulo">
-      <h3 id="playlist-selo-titulo">Playlist do Selo</h3>
-      <div class="playlist-container">
-        <iframe
-          src="https://open.spotify.com/embed/playlist/3Lwva97xxQyZffoGagboOe?utm_source=generator"
-          width="100%"
-          height="352"
-          frameborder="0"
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-          title="Playlist do Selo"
-        ></iframe>
-      </div>
-    </section>
+  <section class="about" id="sobre">
+    <h2>Sobre o Selo</h2>
+    <p>A Gatto Pretto nasce da necessidade de um espaço artístico sem concessões. Com raízes em Porto Alegre e conexões em Berlim, Suíça e Reino Unido, o selo reúne artistas que desafiam o óbvio.</p>
+    <p>Somos um farol para o folk melancólico, o indie obscuro, o pop espectral. Trabalhamos com quem tem algo real a dizer, em qualquer idioma, em qualquer paisagem emocional.</p>
+  </section>
 
-    <section class="contato" aria-labelledby="contato-titulo">
-      <h3 id="contato-titulo">Quer lançar conosco?</h3>
-      <a href="https://wa.me/5551998469973" target="_blank" rel="noopener noreferrer" aria-label="Fale via WhatsApp">
-        Fale via WhatsApp
-      </a>
-      <a href="mailto:gatoprettolabel@gmail.com" aria-label="Envie um e-mail">
-        Envie um e-mail
-      </a>
-    </section>
-  </main>
+  <section class="playlist" id="musica">
+    <h2>Nossas Produções</h2>
+    <iframe src="https://open.spotify.com/embed/playlist/2t4E0NMq72FCCCptRbhDru?utm_source=generator&theme=0" loading="lazy"></iframe>
+    <iframe src="https://open.spotify.com/embed/playlist/3Lwva97xxQyZffoGagboOe?utm_source=generator" loading="lazy"></iframe>
+  </section>
+
+  <section class="contact" id="contato">
+    <h2>Lance com a Gatto Pretto</h2>
+    <p>Se você cria música que desafia padrões, queremos ouvir. Nossa curadoria é seletiva, mas nossa escuta é aberta.</p>
+    <a href="https://wa.me/5551998469973" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="mailto:gatoprettolabel@gmail.com"><i class="far fa-envelope"></i> E-mail</a>
+  </section>
 
   <footer>
-    <a href="mailto:gatoprettolabel@gmail.com" aria-label="Enviar e-mail para gatoprettolabel">gatoprettolabel@gmail.com</a>
-    <a href="https://www.instagram.com/gatoprettolabel" target="_blank" rel="noopener noreferrer" aria-label="Instagram do Gatto Pretto Label">@gatoprettolabel</a>
-    <span>© 2025 Gatto Pretto Label</span>
+    <div>
+      <a href="https://www.instagram.com/gatoprettolabel" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>© 2025 Gatto Pretto Label. Todos os direitos reservados.</p>
   </footer>
+
 </body>
 </html>
